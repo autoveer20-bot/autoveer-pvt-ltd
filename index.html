@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="https://static.readdy.ai/static/e.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Dashboard</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.floating-animation {
+animation: floating 3s ease-in-out infinite;
+}
+.floating-delay {
+animation: floating 3s ease-in-out infinite;
+animation-delay: 1.5s;
+}
+@keyframes floating {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+}
+.ripple {
+position: relative;
+overflow: hidden;
+}
+.ripple::before {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+border-radius: 50%;
+background: rgba(255, 255, 255, 0.5);
+transform: translate(-50%, -50%);
+transition: width 0.6s, height 0.6s;
+}
+.ripple:active::before {
+width: 300px;
+height: 300px;
+}
+.card-hover {
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 768px) {
+.card-hover:hover {
+transform: translateY(-1px);
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+}
+.btn-marketing {
+background: linear-gradient(135deg, #EA4335, #D33B2C);
+color: white;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-marketing:hover {
+background: linear-gradient(135deg, #D33B2C, #B52D20);
+transform: translateY(-1px);
+box-shadow: 0 4px 12px rgba(234, 67, 53, 0.4);
+}
+.btn-sales {
+background: linear-gradient(135deg, #FBBC05, #F9AB00);
+color: #1a1a1a;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-sales:hover {
+background: linear-gradient(135deg, #F9AB00, #E37400);
+transform: translateY(-1px);
+box-shadow: 0 4px 12px rgba(251, 188, 5, 0.4);
+}
+.btn-autoveer {
+background: linear-gradient(135deg, #34A853, #2E7D32);
+color: white;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-autoveer:hover {
+background: linear-gradient(135deg, #2E7D32, #1B5E20);
+transform: translateY(-1px);
+box-shadow: 0 4px 12px rgba(52, 168, 83, 0.4);
+}
+</style>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#4285F4',
+secondary: '#EA4335'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+},
+fontFamily: {
+'sans': ['Inter', 'system-ui', 'sans-serif']
+}
+}
+}
+}
+</script>
+</head>
+<body class="bg-gray-50 font-sans min-h-screen">
+<div class="max-w-7xl mx-auto px-8 py-8">
+<!-- Header Section -->
+<header class="mb-16">
+<div class="flex items-center justify-between mb-8">
+<h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+</div>
+<!-- Central Visual Elements -->
+<div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-8 mb-16">
+<div class="floating-animation bg-white rounded-2xl p-6 shadow-lg card-hover w-full sm:w-auto max-w-xs">
+<div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-xl mb-4">
+<i class="ri-file-text-line text-2xl text-blue-600"></i>
+</div>
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Google Forms</h3>
+<p class="text-sm text-gray-600">Collect and organize data</p>
+</div>
+<div class="floating-delay bg-white rounded-2xl p-6 shadow-lg card-hover w-full sm:w-auto max-w-xs">
+<div class="w-16 h-16 flex items-center justify-center bg-green-100 rounded-xl mb-4">
+<i class="ri-file-document-line text-2xl text-green-600"></i>
+</div>
+<h3 class="text-lg font-semibold text-gray-800 mb-2">Google Docs</h3>
+<p class="text-sm text-gray-600">Create and collaborate</p>
+</div>
+</div>
+</header>
+<!-- Main Dashboard Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center max-w-6xl mx-auto">
+<!-- Marketing Team Section -->
+<div class="flex justify-center">
+<div class="bg-white rounded-2xl shadow-lg p-8 card-hover w-full max-w-sm transition-all duration-300 ease-in-out">
+<div class="flex items-center mb-6">
+<div class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-lg mr-3">
+<i class="ri-group-line text-xl text-red-600"></i>
+</div>
+<h2 class="text-xl font-semibold text-gray-900"> Marketing Team</h2>
+</div>
+<div class="space-y-3">
+<button onclick="window.open('https://docs.google.com/spreadsheets/d/10-WHMkAVrryi8pGW-oZoNh8H2nEGW_0y7jsoNI7ojR0/edit?usp=sharing', '_blank')"
+class="w-full py-3 px-4 rounded-button font-medium text-sm ripple btn-marketing whitespace-nowrap">
+Dwaar Raw Lead
+</button>
+<button onclick="window.open('https://docs.google.com/spreadsheets/d/1ZW7TQ5-RcVw4TEAdyqmsTN35jAGLiMg9bnNR-E8Z28s/edit?gid=668194643#gid=668194643', '_blank')"
+class="w-full py-3 px-4 rounded-button font-medium text-sm ripple btn-marketing whitespace-nowrap">
+Autoveer Raw Lead
+</button>
+<button onclick="window.open('https://docs.google.com/spreadsheets/d/1bEyxdy63J7u1ZI9-R4In45s4AAQhneI1hsbQmgZ3Vu0/edit?usp=sharing', '_blank')"
+class="w-full py-3 px-4 rounded-button font-medium text-sm ripple btn-marketing whitespace-nowrap">
+Groups
+</button>
+<button onclick="window.open('https://docs.google.com/spreadsheets/d/1Yf5DLFIQBOm5vuKPD1TMJwzl7rKIZLKrubb4bAww7R4/edit?usp=sharing', '_blank')"
+class="w-full py-3 px-4 rounded-button font-medium text-sm ripple btn-marketing whitespace-nowrap">
+Caters
+</button>
+<button onclick="window.open('https://docs.google.com/spreadsheets/d/18bq0VxYvEgAB7WxVdjY9RBUWP5KoyfqiHiYjy5WUmao/edit?usp=sharing', '_blank')"
+class="w-full py-3 px-4 rounded-button font-medium text-sm ripple btn-marketing whitespace-nowrap">
+Blast
+</button>
+</div>
+</div>
+</div>
+<!-- Sales Team Section -->
+<div class="flex justify-center">
+<div class="bg-white rounded-2xl shadow-lg p-8 card-hover w-full max-w-sm transition-all duration-300 ease-in-out">
+<div class="flex items-center mb-6">
+<div class="w-10 h-10 flex items-center justify-center bg-yellow-100 rounded-lg mr-3">
+<i class="ri-bar-chart-line text-xl text-yellow-600"></i>
+</div>
+<h2 class="text-xl font-semibold text-gray-900"> Sales Team</h2>
+</div>
+<div class="space-y-3">
+<button onclick="window.open('https://docs.google.com/spreadsheets/d/1QBopZQcWhwTh9Tof_5tdBHC7clFITtZOiah_3waJ_cE/edit?usp=sharing', '_blank')"
+class="w-full py-3 px-4 rounded-button font-medium text-sm ripple btn-sales whitespace-nowrap">
+Inquiry Sheet
+</button>
+<button onclick="window.open('https://docs.google.com/spreadsheets/d/1H1wwimemAZTq4qurII_7FjgMy8gOIIN-EQTUa-y0o6Y/edit?usp=sharing', '_blank')"
+class="w-full py-3 px-4 rounded-button font-medium text-sm ripple btn-sales whitespace-nowrap">
+Chakra – Guest Experience Form
+</button>
+</div>
+</div>
+</div>
+<!-- Autoveer Team Section -->
+<div class="flex justify-center md:col-span-2 lg:col-span-1">
+<div class="bg-white rounded-2xl shadow-lg p-8 card-hover w-full max-w-sm transition-all duration-300 ease-in-out">
+<div class="flex items-center mb-6">
+<div class="w-10 h-10 flex items-center justify-center bg-green-100 rounded-lg mr-3">
+<i class="ri-shield-line text-xl text-green-600"></i>
+</div>
+<h2 class="text-xl font-semibold text-gray-900"> Autoveer Team</h2>
+</div>
+<div class="space-y-3">
+<button onclick="window.open('https://docs.google.com/spreadsheets/d/1NkQxEQGSl_N8g7y7v7yr0wsgxlYEewKLtn_KXSZhsJM/edit?usp=sharing', '_blank')"
+class="w-full py-3 px-4 rounded-button font-medium text-sm ripple btn-autoveer whitespace-nowrap">
+Guard Form Kurukshetra
+</button>
+<button onclick="window.open('https://docs.google.com/spreadsheets/d/1DTCEBVFNTRsHiDiQisaZ-AWnlxaoRKjLB-eI3O8Be7Y/edit?usp=sharing')"
+class="w-full py-3 px-4 rounded-button font-medium text-sm ripple btn-autoveer whitespace-nowrap">
+Guard Form Rohtak
+</button>
+<button onclick="window.open('https://docs.google.com/spreadsheets/d/1tiPUnDlqza7uSRW8-kY7fKQsdjmV-jnIzKWPkQGMNHc/edit?usp=sharing', '_blank')"
+class="w-full py-3 px-4 rounded-button font-medium text-sm ripple btn-autoveer whitespace-nowrap">
+Guard Form Karnal
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Additional Info Section -->
+<div class="mt-16 bg-white rounded-2xl shadow-lg p-8 card-hover transition-all duration-300 ease-in-out">
+<div class="text-center">
+<div class="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-xl mx-auto mb-4">
+<i class="ri-dashboard-line text-2xl text-blue-600"></i>
+</div>
+<h3 class="text-2xl font-semibold text-gray-900 mb-3">Centralized Team Dashboard</h3>
+<p class="text-gray-600 max-w-2xl mx-auto">
+Access all your team's Google Sheets and forms from one convenient location.
+Each link opens in a new tab for seamless workflow management across Marketing, Sales, and Autoveer teams.
+</p>
+</div>
+</div>
+</div>
+<script id="ripple-effects">
+document.addEventListener('DOMContentLoaded', function() {
+const rippleButtons = document.querySelectorAll('.ripple');
+rippleButtons.forEach(button => {
+button.addEventListener('click', function(e) {
+const rect = button.getBoundingClientRect();
+const size = Math.max(rect.width, rect.height);
+const x = e.clientX - rect.left - size / 2;
+const y = e.clientY - rect.top - size / 2;
+const ripple = document.createElement('span');
+ripple.style.cssText = `
+position: absolute;
+width: ${size}px;
+height: ${size}px;
+left: ${x}px;
+top: ${y}px;
+background: rgba(255, 255, 255, 0.5);
+border-radius: 50%;
+transform: scale(0);
+animation: ripple-animation 0.6s linear;
+pointer-events: none;
+`;
+button.appendChild(ripple);
+setTimeout(() => {
+ripple.remove();
+}, 600);
+});
+});
+const style = document.createElement('style');
+style.textContent = `
+@keyframes ripple-animation {
+to {
+transform: scale(4);
+opacity: 0;
+}
+}
+`;
+document.head.appendChild(style);
+});
+</script>
+<script id="floating-animations">
+document.addEventListener('DOMContentLoaded', function() {
+const floatingElements = document.querySelectorAll('.floating-animation, .floating-delay');
+floatingElements.forEach((element, index) => {
+element.addEventListener('mouseenter', function() {
+this.style.animationPlayState = 'paused';
+this.style.transform = 'translateY(-5px) scale(1.02)';
+});
+element.addEventListener('mouseleave', function() {
+this.style.animationPlayState = 'running';
+this.style.transform = '';
+});
+});
+});
+</script>
+<script id="card-interactions">
+document.addEventListener('DOMContentLoaded', function() {
+const cards = document.querySelectorAll('.card-hover');
+cards.forEach(card => {
+card.addEventListener('mouseenter', function() {
+this.style.transform = 'translateY(-4px)';
+});
+card.addEventListener('mouseleave', function() {
+this.style.transform = 'translateY(0)';
+});
+});
+});
+</script>
+</html>
